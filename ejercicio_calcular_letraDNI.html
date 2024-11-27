@@ -24,7 +24,7 @@
 
 
   <p>Introduce un DNI (sin letra):<input type="text" id="DNI_original" maxlength="8"></p>
-  <p>Letra asignada:<input type="text" id="letra_asign"></p>
+  <p>Letra asignada:<input type="text" id="letra_asign" disabled></p>
 
   <p><button id="calcular">Calcular letra</button></p>
 
@@ -49,7 +49,8 @@
 
       let letra = DNI_OG % 23;
 
-      document.querySelector('#resultado').value = array_letras[letra];
+      let resultado_final = array_letras[letra];
+      document.querySelector('#letra_asign').value = resultado_final;
     }
 
     document.querySelector("#calcular").addEventListener('click', calcular_letra);
