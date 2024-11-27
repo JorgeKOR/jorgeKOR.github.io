@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora</title>
+  <style>
+    /* Estilos generales */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #1e1e2f;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #f1f1f1;
+    }
+
+    h1 {
+      text-align: center;
+      color: #f7d154;
+      margin-bottom: 20px;
+    }
+
+    .calculadora-container {
+      background-color: #2b2b3c;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+      max-width: 300px;
+      width: 100%;
+    }
+
+    p {
+      margin: 10px 0;
+      font-size: 14px;
+    }
+
+    input[type="text"],
+    select {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      background-color: #3a3a4d;
+      color: #f1f1f1;
+      box-sizing: border-box;
+    }
+
+    input[type="text"]:focus,
+    select:focus {
+      outline: none;
+      box-shadow: 0 0 5px #f7d154;
+    }
+
+    #resultado {
+      background-color: #262631;
+      color: #f7d154;
+      font-weight: bold;
+      cursor: default;
+    }
+
+    select {
+      cursor: pointer;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #1e1e2f;
+      background-color: #f7d154;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 5px #d4b044;
+      transition: all 0.3s ease;
+    }
+
+    button:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px #d4b044;
+    }
+
+    button:hover {
+      background-color: #ffd564;
+    }
+
+    /* Extra: Centrado */
+    .calculadora-container p:last-child {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="calculadora-container">
+    <h1>CALCULADORA</h1>
+    <p>Número 1: <input type="text" id="num1"></p>
+    <p>Número 2: <input type="text" id="num2"></p>
+    <p>Operador:
+      <select name="op" id="op">
+        <option value="suma">+</option>
+        <option value="resta">-</option>
+        <option value="multiplicacion">*</option>
+        <option value="division">/</option>
+      </select>
+    </p>
+    <p><button id="calcular">Calcular</button></p>
+    <p>Resultado: <input type="text" id="resultado"></p>
+  </div>
+
+  <script>
+    // Tu código JavaScript original
+    const calculadora = () => {
+      const numero1 = Number(document.querySelector('#num1').value);
+      const numero2 = Number(document.querySelector('#num2').value);
+      const operador = document.querySelector('#op').value;
+      let result;
+
+      if (operador === 'suma') {
+        result = numero1 + numero2;
+      } else if (operador === 'resta') {
+        result = numero1 - numero2;
+      } else if (operador === 'multiplicacion') {
+        result = numero1 * numero2;
+      } else {
+        result = numero1 / numero2
+      }
+
+      document.querySelector('#resultado').value = result;
+    }
+
+    document.querySelector("#calcular").addEventListener('click', calculadora);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calcular Letra DNI</title>
+</head>
+
+<body>
+
+  <p><a href="https://pablomonteserin.com/curso/javascript/obtener-la-letra-del-dni/#dni">Enunciado del ejercicio</a>
+  </p>
+
+  <p>Crear una función que reciba un parámetro, un dni, y devuelva la letra del mismo. Si el DNI pasado tiene algún
+    error
+    devolverá “”.</p>
+  <p>El algoritmo para calcular la letra del dni es el siguiente :</p>
+  <p>• El texto introducido debe tener 8 dígitos y debe ser un número.</p>
+  <p>• Debemos calcular el resto de la división entera entre el número y el número 23.</p>
+  <p>• Según el resultado, de 0 a 22, le corresponderá una letra de las siguientes: (T, R, W, A, G, M, Y, F, P, D, X, B,
+    N,
+    J, Z, S, Q, V, H, L, C, K, E)</p>
+
+
+  <p>Introduce un DNI (sin letra):<input type="text" id="DNI_original" maxlength="8"></p>
+  <p>Letra asignada:<input type="text" id="letra_asign"></p>
+
+  <p><button id="calcular">Calcular letra</button></p>
+
+
+
+  <script>
+
+    const calcular_letra = () => {
+
+      let array_letras = ["T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B", "N", "J", "Z", "S", "Q", "V", "H", "L", "C", "K", "E"]
+      const DNI_OG = document.querySelector('#DNI_original').value;
+      console.log(DNI_OG);
+
+      let comprobar_num = !isNaN(DNI_OG);
+      console.log("es número: " + comprobar_num);
+
+      if (DNI_OG.length != 8) {
+        alert("Tu DNI no tiene 8 cifras");
+      } else if (comprobar_num === false) {
+        alert("tu DNI tiene que ser todo números");
+      }
+
+      let letra = DNI_OG % 23;
+
+      document.querySelector('#resultado').value = array_letras[letra];
+    }
+
+    document.querySelector("#calcular").addEventListener('click', calcular_letra);
+
+  </script>
+</body>
+
+</html>
